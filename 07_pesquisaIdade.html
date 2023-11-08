@@ -2,7 +2,8 @@
 <script>
     /*
     Problema: Pesquisa de Idade
-    Foi feita uma pesquisa entre os habitantes de uma região. Foram coletados os dados de idade, sexo (M/F) e salário. Faça um programa que calcule e mostre:
+    Foi feita uma pesquisa entre os habitantes de uma região. Foram coletados os dados de idade, sexo (M/F) e salário.
+    Faça um programa que calcule e mostre:
 
     a) A média dos salários do grupo;
     b) A maior e a menor idade do grupo;
@@ -11,13 +12,58 @@
 
     Finalize a entrada de dados ao ser digitada uma idade negativa.
     */
+    let mulher = 0
+    let homem = 0
+    let idadeF = []
+    let salarioM = []
+    let salarioF = []
+    let mediaF = 0
+    let mediaM = 0
+    let idadeM = []
 
-    //Entrada
+    while (true) {
+        let idade = Number(prompt(`Informe a idade dele/a, ou um número negativo para encerrar a pesquisa.`));
 
+        if (idade < 0) {
+            break;
+        }
 
-    //Processamento
+        let sexo = prompt(`Informe o sexo dele/a: F-feminino M-masculino.`);
+        let salario = Number(prompt(`Informe o salário dele/a.`));
 
+        if (sexo === `f`) {
+            mulher++;
+            idadeF.push(idade);
+            salarioF.push(salario);
+            mediaF += salario;
+        } else if (sexo === `m`) {
+            homem++;
+            idadeM.push(idade);
+            salarioM.push(salario);
+            mediaM += salario;
+        }
+    }
+
+    if (mulher > 0) {
+        mediaF = mediaF / mulher;
+    }
+
+    if (homem > 0) {
+        mediaM = mediaM / homem;
+    }
+
+    idadeF.sort((a, b) => a - b);
+    idadeM.sort((a, b) => a - b);
+    const menorIdadeFeminina = idadeF[0];
+    const maiorIdadeFeminina = idadeF[idadeF.length - 1];
+    const menorIdadeMasculina = idadeM[0];
+    const maiorIdadeMasculina = idadeM[idadeM.length - 1];
+
+    salarioF.sort((a, b) => a - b);
+    salarioM.sort((a, b) => a - b);
+    const menorSalarioFeminino = salarioF[0];
+    const menorSalarioMasculino = salarioM[0];
 
     //Saída
-
+    alert(`Média do salário feminino: R$ ${mediaF.toFixed(2)}, média do salário masculino: R$ ${mediaM.toFixed(2)}, menor idade feminina: ${menorIdadeFeminina}, maior idade feminina: ${maiorIdadeFeminina}, menor idade masculina: ${menorIdadeMasculina}, maior idade masculina: ${maiorIdadeMasculina}, quantidade de mulheres na região: ${mulher}, menor salário é feminino que é R$ ${menorSalarioFeminino} e a idade da pessoa é: ${idadeF[0]}.`);
 </script>

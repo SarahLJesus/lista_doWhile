@@ -20,13 +20,45 @@
     */
 
     //Entrada
-
+    let joaozinho = 0
+    let mariazinha = 0
+    let nulo = 0
+    let branco = 0
+    let total = 0
 
     //Processamento
-
+    while (true) {
+        const votos = Number(prompt(`As opções são: 1- Candidato Joãozinho 2- Candidata Mariazinha 3- Nulo 4- Branco e  0- Mostrar resultado.`))
+        if (votos === 1) {
+            joaozinho++
+            total++
+        }
+        else if (votos === 2) {
+            mariazinha++
+            total++
+        }
+        else if (votos === 3) {
+            nulo++
+            total++
+        }
+        else if (votos === 4) {
+            branco++
+            total++
+        }
+        else if (votos === 0) {
+            break;
+        }
+    }
 
     //Saída
+    if (joaozinho > mariazinha) {
+        alert(`O vencedor foi: Joãozinho tendo ${joaozinho} votos, Mariazinha tendo ${mariazinha} votos, houve ${(nulo / total) * 100}% votos nulos e houve ${(branco / total) * 100}% votos em branco.`);
+    }
+    else if (mariazinha > joaozinho) {
+        alert(`O vencedor foi: Mariazinha tendo ${mariazinha} votos, Joãozinho tendo ${joaozinho} votos, houve ${(nulo / total) * 100}% votos nulos e houve ${(branco / total) * 100}% votos em branco.`);
+    }
+    else {
+        alert(`Empate. Mariazinha recebeu ${mariazinha} votos e Joãozinho recebeu ${joaozinho} votos, houve ${(nulo / total) * 100}% votos nulos e houve ${(branco / total) * 100}%`);
+    }
 
 </script>
-
-

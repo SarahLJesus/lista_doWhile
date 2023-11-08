@@ -11,11 +11,19 @@
     */
 
     //Entrada
-
+    let nome = []
+    let idade = 0
+    let salario = 0
+    let sexo = []
+    let estadoCivil = []
 
     //Processamento
-
-
+    while (nome.toString().length <= 3 || idade < 0 && idade > 150 || salario < 0 || sexo !== `m` && sexo !== `f` && estadoCivil !== `s` && estadoCivil !== `c` && estadoCivil !== `v` && estadoCivil !== `d`)
+        nome = prompt(`Informe seu nome.`);
+    idade = Number(prompt(`Informe sua idade.`));
+    salario = Number(prompt(`Informe seu salário.`));
+    sexo = prompt(`Informe seu sexo com F-feminino ou M-masculino.`);
+    estadoCivil = prompt(`Informe seu estado civil com S-solteiro, C-casado, V-viúvo, D-divorciado.`);
     //Saída
 
 </script>
